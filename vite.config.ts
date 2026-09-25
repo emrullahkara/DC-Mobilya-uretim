@@ -29,6 +29,9 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
+        // Tanıtım sunumu uygulamanın parçası değil: önbelleğe alınmaz, uygulama sayfasına yönlendirilmez
+        globIgnores: ['**/sunum/**'],
+        navigateFallbackDenylist: [/\/sunum\//],
         maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
       },
     }),

@@ -4,3 +4,4 @@ Mobilya ustaları için ölçüden teklife, malzeme listesinden fason kesim list
 
 - Kullanım kılavuzu, hesap kuralları ve geliştirme günlüğü: **[KITAP.md](KITAP.md)**
 - Çalıştırma: `npm install && npm run dev` · Test: `npm test` · Derleme: `npm run build`
+- Tanıtım sunumu: [public/sunum/index.html](public/sunum/index.html) · yayında: `/sunum/`

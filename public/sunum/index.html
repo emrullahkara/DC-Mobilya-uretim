@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DC Mobilya Üretim – Tanıtım Sunumu</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+  /* Sunum görüntüleyici: 1920x1080 sahne ekrana ölçeklenir. Ok tuşları / boşluk / dokunma ile gezinilir,
+     N tuşu konuşmacı notlarını açar, F tam ekran. Yazdırınca (PDF) her sayfa bir slayt olur. */
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #1b1714; overflow: hidden; font-family: 'Nunito Sans', Arial, sans-serif; }
+  #sahne { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: 0 0; }
+  .slide { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; }
+  /* Slaytların kendi display stili (flex) var; görünmeyenler burada gizlenir */
+  .slide:not(.on) { display: none !important; }
+  .slide h1, .slide h2, .slide h3, .slide p, .slide ul, .slide ol { margin: 0; }
+  .slide ul { padding-left: 1.1em; }
+  .slide aside { display: none; }
+  .slide table { border-collapse: collapse; width: 100%; }
+  .slide th, .slide td { padding: 0.35em 0.6em; border-bottom: 1px solid #E0D5C5; text-align: left; }
+  .slide th { font-weight: 800; }
+  #bar { position: fixed; left: 50%; bottom: 8px; transform: translateX(-50%); display: flex; gap: 8px; align-items: center; padding: 6px 10px; border-radius: 10px; background: rgba(27,23,20,.85); color: #f7f2ea; font-size: 14px; opacity: .35; transition: opacity .2s; }
+  #bar:hover { opacity: 1; }
+  #bar button { background: #2a211b; color: #f7f2ea; border: 1px solid #5a4a3c; border-radius: 6px; padding: 6px 12px; cursor: pointer; font: inherit; }
+  #not { position: fixed; left: 16px; right: 16px; bottom: 52px; max-height: 30vh; overflow: auto; background: rgba(42,33,27,.95); color: #f7f2ea; border-radius: 10px; padding: 14px 18px; font-size: 16px; line-height: 1.5; display: none; }
+  @media print {
+    @page { size: 1920px 1080px; margin: 0; }
+    html, body { overflow: visible; height: auto; background: #fff; }
+    #bar, #not { display: none !important; }
+    #sahne { position: static; transform: none !important; }
+    .slide, .slide:not(.on) { position: relative; display: flex !important; page-break-after: always; break-after: page; }
+  }
+</style>
+</head>
+<body>
+<div id="sahne">
+<section class="slide" id="kapak" data-transition="fade" style="background:#2A211B; color:#F7F2EA; font-family:'Nunito Sans', Arial, sans-serif; padding:128px; display:flex; flex-direction:column; justify-content:center; gap:40px">
+  <div style="position:absolute; left:0; top:0; width:24px; height:1080px; background:#C8813F"></div>
+  <p style="font-size:28px; font-weight:800; letter-spacing:4px; text-transform:uppercase; color:#E3A46C">Mobilya ustaları için</p>
+  <h1 style="font-family:'Domine', Georgia, serif; font-size:120px; font-weight:700; line-height:1.05; color:#F7F2EA">DC Mobilya Üretim</h1>
+  <p style="font-size:44px; line-height:1.35; color:#D9CBB9; width:1300px">Duvar ölçüsünden teklife, malzeme listesinden fason kesim listesine kadar tek uygulama.</p>
+  <div style="display:flex; gap:24px">
+    <p style="font-size:26px; font-weight:700; color:#2A211B; background:#E3A46C; padding:12px 28px; border-radius:999px">Telefon · Tablet · Bilgisayar</p>
+    <p style="font-size:26px; font-weight:700; color:#F7F2EA; border:2px solid #E3A46C; padding:10px 28px; border-radius:999px">İnternetsiz çalışır</p>
+  </div>
+  <aside>Bu sunum, DC Mobilya Üretim uygulamasını baştan sona tanıtır: ustanın müşteride ölçü alıp teklif vermesinden, sipariş sonrası malzeme ve fason kesim listesine kadar. Ekran görüntüleri uygulamanın gerçek çıktılarıdır; fiyatlar örnek fiyat listesiyle hesaplanmıştır.</aside>
+</section>
+<section class="slide" id="sorun" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Bugün atölyede</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Ölçüden kesime kadar her adım elle yapılıyor</h2>
+  <div style="display:flex; gap:32px; flex:1">
+    <div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:20px; padding:40px">
+      <p style="font-size:72px; font-weight:800; color:#C8813F; line-height:1">1</p>
+      <h3 style="font-size:36px; font-weight:800; line-height:1.2">Teklif günler sürüyor</h3>
+      <p style="font-size:28px; line-height:1.45; color:#4A3F36">Ölçü müşteride alınır, hesap atölyede kâğıtta yapılır. Müşteri fiyatı birkaç gün sonra öğrenir; o arada başka ustaya gider.</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:20px; padding:40px">
+      <p style="font-size:72px; font-weight:800; color:#C8813F; line-height:1">2</p>
+      <h3 style="font-size:36px; font-weight:800; line-height:1.2">Kesim listesi hataya açık</h3>
+      <p style="font-size:28px; line-height:1.45; color:#4A3F36">Yan dikme alt tablaya basıyor mu, tabla kalınlığı düşüldü mü, kapak boşluğu verildi mi? Tek yanlış ölçü bir plakayı fireye çevirir.</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:20px; padding:40px">
+      <p style="font-size:72px; font-weight:800; color:#C8813F; line-height:1">3</p>
+      <h3 style="font-size:36px; font-weight:800; line-height:1.2">Malzeme eksik kalıyor</h3>
+      <p style="font-size:28px; line-height:1.45; color:#4A3F36">Kaç menteşe, kaç ray, kaç paket vida? Bir kalem unutulunca montaj durur, hırdavatçıya ikinci kez gidilir.</p>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Sorun</p>
+  <aside>Uygulamanın çıkış noktası: usta müşteride ölçü alıyor ama fiyatı, malzemeyi ve kesim listesini atölyeye dönünce elle hesaplıyor. Bu hem zaman kaybettiriyor hem de hata payı bırakıyor.</aside>
+</section>
+<section class="slide" id="cozum" data-transition="fade" style="background:#EFE6D8; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Çözüm</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Beş adım, tek uygulama, müşterinin yanında</h2>
+  <div style="display:flex; gap:20px; flex:1; align-items:stretch">
+    <div style="flex:1; display:flex; flex-direction:column; gap:14px; background:#FFFDF8; border-radius:20px; padding:32px; border-top:8px solid #C8813F">
+      <p style="font-size:56px; font-weight:800; color:#C8813F; line-height:1">1</p>
+      <h3 style="font-size:34px; font-weight:800">Ölç</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">Duvar ölçüsü, tavan yüksekliği, kolon ve pencere boşlukları girilir.</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:14px; background:#FFFDF8; border-radius:20px; padding:32px; border-top:8px solid #C8813F">
+      <p style="font-size:56px; font-weight:800; color:#C8813F; line-height:1">2</p>
+      <h3 style="font-size:34px; font-weight:800">Tasarla</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">Modüller dizilir, ölçüye göre esner, 3D olarak müşteriye gösterilir.</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:14px; background:#FFFDF8; border-radius:20px; padding:32px; border-top:8px solid #C8813F">
+      <p style="font-size:56px; font-weight:800; color:#C8813F; line-height:1">3</p>
+      <h3 style="font-size:34px; font-weight:800">Teklif ver</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">Malzeme seçilince fiyat anında çıkar; çıktı alınır ya da WhatsApp ile gider.</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:14px; background:#FFFDF8; border-radius:20px; padding:32px; border-top:8px solid #C8813F">
+      <p style="font-size:56px; font-weight:800; color:#C8813F; line-height:1">4</p>
+      <h3 style="font-size:34px; font-weight:800">Sipariş al</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">Müşteri onaylayınca iş siparişe döner, kapora kaydedilir.</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:14px; background:#FFFDF8; border-radius:20px; padding:32px; border-top:8px solid #C8813F">
+      <p style="font-size:56px; font-weight:800; color:#C8813F; line-height:1">5</p>
+      <h3 style="font-size:34px; font-weight:800">Üret</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">Malzeme listesi ve fason kesim listesi Excel olarak hazır.</p>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Çözüm</p>
+  <aside>Uygulamadaki her iş bu beş adımı izler. Proje ekranındaki sekmeler de aynı sırada: Ölçü ve Tasarım, Malzeme Seçimi, Teklif, Malzeme Listesi, Kesim Listesi.</aside>
+</section>
+<section class="slide" id="cihaz" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:row; gap:80px; align-items:center">
+  <div style="flex:1; display:flex; flex-direction:column; gap:32px">
+    <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Her yerde çalışır</p>
+    <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Atölyede, dükkânda, müşterinin mutfağında</h2>
+    <ul style="font-size:30px; line-height:1.5; color:#4A3F36; display:flex; flex-direction:column; gap:14px">
+      <li><b>Telefona uygulama gibi yüklenir</b> (PWA): Android, iPhone, tablet, bilgisayar.</li>
+      <li><b>İnternet gerekmez.</b> Bodrum katta, şantiyede de açılır.</li>
+      <li><b>Veriler cihazda saklanır;</b> sunucu ya da aylık ücret yok.</li>
+      <li><b>Yedek dosyası (JSON)</b> ile telefondan bilgisayara taşınır.</li>
+      <li>Telefonda alt menü, bilgisayarda üst menü; düğmeler parmakla basılacak boyutta.</li>
+    </ul>
+  </div>
+  <img src="img/mobil.png" alt="Uygulamanın telefon ekranında 3D mutfak tasarımı" style="width:366px; height:792px; object-fit:cover; border-radius:32px; border:8px solid #2A211B">
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Kullanım ortamı</p>
+  <aside>Sağdaki görüntü uygulamanın telefon boyutundaki halidir. Tarayıcıdan bir kez açılıp "Ana ekrana ekle" denildiğinde uygulama gibi çalışır ve internetsiz açılır. Veriler tarayıcının cihaz içi veritabanında (IndexedDB) tutulur; bu yüzden düzenli yedek almak önemlidir.</aside>
+</section>
+<section class="slide" id="yeni-is" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Ölçüden tasarıma · Yeni iş</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">İş türünü seç, ölçüyü yaz, modüller kendiliğinden dizilsin</h2>
+  <div style="display:flex; gap:48px; flex:1">
+    <img src="img/home.png" alt="Ana ekran: mutfak, gardırop, vestiyer ve boş proje başlangıçları" style="width:820px; height:586px; object-fit:contain; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px">
+    <div style="flex:1; display:flex; flex-direction:column; gap:20px">
+      <p style="font-size:30px; line-height:1.45; color:#4A3F36"><b>Mutfak:</b> duvar ölçüsü ve istenirse L köşenin ikinci duvarı. Evye, bulaşık, çekmeceli, fırın ve kapaklı modüller otomatik yerleşir.</p>
+      <p style="font-size:30px; line-height:1.45; color:#4A3F36"><b>Gardırop:</b> toplam genişlik, kapak sayısı, 2'li ya da tek kapaklı düzen, isteğe bağlı yüklük.</p>
+      <p style="font-size:30px; line-height:1.45; color:#4A3F36"><b>Vestiyer:</b> ayakkabılık, puf oturaklı askılık ve kapaklı modüller.</p>
+      <p style="font-size:30px; line-height:1.45; color:#4A3F36"><b>Diğer:</b> komidin, şifonyer, banyo, TV ünitesi.</p>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Yeni iş</p>
+  <aside>Yeni iş penceresinde müşteri adı ve telefonu da girilir; müşteri kaydı otomatik açılır. "Modülleri otomatik yerleştir" işaretliyse dizilim hazır gelir, sonra her şey değiştirilebilir. İş numarası yıl-sıra şeklinde otomatik verilir (2026-0001 gibi).</aside>
+</section>
+<section class="slide" id="sigdirma" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Akıllı sığdırma</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Modüller duvara göre esner, sabitler ölçüsünü korur</h2>
+  <div style="display:flex; gap:56px">
+    <div style="width:620px; display:flex; flex-direction:column; gap:20px">
+      <p style="font-size:30px; line-height:1.45; color:#4A3F36"><b>Esnek modül</b> boşluğu, nominal genişliği oranında paylaşır; min/maks sınırına gelince durur, kalan pay diğerlerine geçer.</p>
+      <p style="font-size:30px; line-height:1.45; color:#4A3F36"><b>Sabit modül</b> (fırın, bulaşık, köşe) ve elle ölçü girilip 🔒 kilitlenen modül ölçüsünü korur.</p>
+      <p style="font-size:30px; line-height:1.45; color:#4A3F36">Boşluk kalırsa tek dokunuşla <b>dolgu paneli</b> eklenir; taşma olursa uyarı çıkar.</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:16px">
+      <p style="font-size:26px; font-weight:700; color:#4A3F36">Örnek: üst sıra, 3200 mm duvar</p>
+      <table style="font-size:28px; color:#2A211B; background:#FFFDF8">
+        <tr><th style="width:40%">Modül</th><th style="width:18%; text-align:right">Nominal</th><th style="width:22%; text-align:right">Sınır</th><th style="width:20%; text-align:right">Sonuç</th></tr>
+        <tr><td>Bulaşıklıklı üst</td><td style="text-align:right">900</td><td style="text-align:right">600–900</td><td style="text-align:right">900</td></tr>
+        <tr><td>Çift kapaklı üst</td><td style="text-align:right">600</td><td style="text-align:right">600–1200</td><td style="text-align:right">775</td></tr>
+        <tr><td>Çift kapaklı üst</td><td style="text-align:right">600</td><td style="text-align:right">600–1200</td><td style="text-align:right">775</td></tr>
+        <tr><td>Üst köşe (kör)</td><td style="text-align:right">750</td><td style="text-align:right">sabit</td><td style="text-align:right">750</td></tr>
+        <tr style="background:#EFE6D8"><td><b>Toplam</b></td><td style="text-align:right">2850</td><td style="text-align:right"></td><td style="text-align:right">3200</td></tr>
+      </table>
+      <p style="font-size:24px; color:#6B5C50">Bulaşıklık 900'de sınıra dayandı; kalan 350 mm iki çift kapaklıya eşit dağıldı.</p>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Akıllı sığdırma</p>
+  <aside>Sığdırma 1 mm'ye yuvarlanır, yuvarlama farkı son esnek modüle verilir; toplam her zaman duvar ölçüsüne eşittir. Boy dolaplar (kiler, buzdolabı, ankastre boy) üst sırayı böler: üst dolaplar her bölümde ayrı ayrı sığdırılır. Duvarın başında ve sonunda kolon, kapı gibi boşluklar ayrıca girilebilir; üst sıranın başlangıcı alt sıradan farklıysa kayma değeri verilir.</aside>
+</section>
+<section class="slide" id="gardirop" data-transition="fade" style="background:#EFE6D8; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Gardırop sihirbazı</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">2600 mm, 6 kapak: genişlik kapaklara eşit bölünür</h2>
+  <div style="display:flex; gap:32px">
+    <div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#FFFDF8; border-radius:20px; padding:40px">
+      <h3 style="font-size:36px; font-weight:800">2 kapaklı düzen</h3>
+      <p style="font-size:96px; font-weight:800; color:#8E4F22; line-height:1">3 × 867</p>
+      <p style="font-size:28px; line-height:1.45; color:#4A3F36">Üç adet 2 kapaklı modül (866 + 866 + 868 mm). Kapak genişliği 430 mm. İç düzen çeşitlenir: iç çekmeceli, bölmeli, askılı.</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:16px; background:#FFFDF8; border-radius:20px; padding:40px">
+      <h3 style="font-size:36px; font-weight:800">Tek kapaklı düzen</h3>
+      <p style="font-size:96px; font-weight:800; color:#8E4F22; line-height:1">6 × 433</p>
+      <p style="font-size:28px; line-height:1.45; color:#4A3F36">Altı adet tek kapaklı modül; askılı ve raflı sırayla gelir. Tek sayıda kapakta 2'li düzen bir tek kapaklı modül ekler.</p>
+    </div>
+  </div>
+  <p style="font-size:28px; line-height:1.45; color:#4A3F36"><b>Tavan kontrolü:</b> 2600 mm tavanda gövde en fazla 2520 mm yapılır. Böylece dolap yatık getirilip yerinde dikilebilir. İstenirse üstte ayrı yüklük modülleri eklenir.</p>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Gardırop</p>
+  <aside>Sihirbaz, önerilen kapak sayısını da gösterir: her kapak ayarlardaki azami genişliği (600 mm) geçmesin diye. Yuvarlama farkı son modüle verilir, toplam genişlik korunur. Köşe gardırop, sürgülü 2 ve 3 kapaklı gardırop, aynalı kapaklı modüller kütüphaneden ayrıca eklenebilir.</aside>
+</section>
+<section class="slide" id="tasarim-3d" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">3D tasarım</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Müşteri mutfağını kesimden önce görür</h2>
+  <img src="img/design3d.png" alt="L mutfağın 3D görünümü, modül genişlik etiketleriyle" style="width:1664px; height:450px; object-fit:contain; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px">
+  <div style="display:flex; gap:24px">
+    <p style="flex:1; font-size:26px; line-height:1.4; color:#4A3F36"><b>Kapaklı / Şeffaf / İç düzen</b> görünümleri</p>
+    <p style="flex:1; font-size:26px; line-height:1.4; color:#4A3F36"><b>Ölçü etiketleri</b> her modülün üstünde</p>
+    <p style="flex:1; font-size:26px; line-height:1.4; color:#4A3F36"><b>L / U birleşik</b> tüm duvarlar</p>
+    <p style="flex:1; font-size:26px; line-height:1.4; color:#4A3F36"><b>Dokun, seç, düzenle</b> doğrudan 3D'den</p>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · 3D tasarım</p>
+  <aside>3D görünüm kesim listesiyle aynı hesaptan üretilir: her parça gerçek ölçüsünde ve konumunda çizilir. Yani 3D'de görülen yan dikme, raf, kapak ve çekmece kutusu, kesim listesindeki parçaların ta kendisidir. Renkler seçilen malzemeden gelir (örneğin antrasit kapak, ceviz gövde). Parmakla döndürülür, yakınlaştırılır.</aside>
+</section>
+<section class="slide" id="seritler" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Modül şeritleri ve ayarları</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Sürükle, bırak, dokun: her modül tek tek ayarlanır</h2>
+  <div style="display:flex; gap:48px">
+    <img src="img/seritler.png" alt="Üst ve alt sıra şeritleri ile seçili modülün ayar paneli" style="width:1020px; height:518px; object-fit:contain; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px">
+    <ul style="flex:1; font-size:28px; line-height:1.45; color:#4A3F36; display:flex; flex-direction:column; gap:10px">
+      <li>Modül tipi değişimi</li>
+      <li>Genişlik, yükseklik, derinlik; kilitle / esnet</li>
+      <li>Kapak, raf, çekmece adedi</li>
+      <li>Menteşe ya da köşe kapak tarafı</li>
+      <li>Modüle özel kapak malzemesi</li>
+      <li>Not: priz kesimi, tesisat deliği</li>
+      <li>Sola / sağa taşı, çoğalt, sil</li>
+      <li>3D incele, parça listesini gör</li>
+    </ul>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Şeritler</p>
+  <aside>Şeritler duvarı ölçekli gösterir: kesik çizgili modüller esnek, düz çizgililer sabit ya da kilitli. Üst sıradaki taralı "Boy dolap" kutusu alt sıradaki kiler veya buzdolabının yerini tutar. Sürükleme telefonda da çalışır (dokun ve bekle). Üst sıra ve alt sıra için ayrı "Modül ekle" düğmeleri vardır; eklenen modül seçili modülün hemen sağına gelir.</aside>
+</section>
+<section class="slide" id="kutuphane" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:row; gap:64px; align-items:center">
+  <div style="width:620px; display:flex; flex-direction:column; gap:28px">
+    <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Modül kütüphanesi</p>
+    <p style="font-family:'Domine', Georgia, serif; font-size:160px; font-weight:700; line-height:1; color:#8E4F22">124</p>
+    <h2 style="font-family:'Domine', Georgia, serif; font-size:56px; font-weight:700; line-height:1.15">parametrik modül, ölçüye göre şekillenir</h2>
+    <p style="font-size:28px; line-height:1.45; color:#4A3F36">Her kartta ön görünüş çizimi ve ölçü aralığı var. Ölçü değiştikçe 3D önizleme, parça listesi ve donanım anında yenilenir.</p>
+  </div>
+  <img src="img/kutuphane.png" alt="Modül kütüphanesi ekranı: alt dolap kartları ve seçili modülün 3D önizlemesi" style="flex:1; height:792px; object-fit:contain; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px">
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Modül kütüphanesi</p>
+  <aside>Kütüphane arama destekler: "çekmece", "evye", "askı", "ayakkabılık", "köşe" gibi kelimelerle bulunur. Yeni modül eklemek teknik olarak tek satırdır: modül sütunlardan, sütun da alttan yukarı bölgelerden (raf, çekmece, iç çekmece, askı, ayakkabı, cihaz, oturak) oluşur; kapaklar bu bölgelerden otomatik üretilir.</aside>
+</section>
+<section class="slide" id="kategoriler" data-transition="fade" style="background:#EFE6D8; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Kütüphanede neler var</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Mobilyacının yaptığı her şey, dokuz grupta</h2>
+  <table style="font-size:26px; color:#2A211B; background:#FFFDF8">
+    <tr><th style="width:24%">Grup</th><th style="width:8%; text-align:right">Adet</th><th style="width:68%">Örnekler</th></tr>
+    <tr><td>Mutfak – alt</td><td style="text-align:right">25</td><td>Tek/çift kapaklı, 2-3-4 çekmeceli, kaşıklıklı, evye, ankastre fırın, bulaşık boşluğu, kör köşe, karusel, çöp, şişelik</td></tr>
+    <tr><td>Mutfak – üst</td><td style="text-align:right">18</td><td>Camlı, kalkar, düşen, katlanır, dikey kalkar, aspiratör üstü, bulaşıklıklı, mikrodalga yerli</td></tr>
+    <tr><td>Mutfak – boy</td><td style="text-align:right">11</td><td>Kiler, çekme kiler ünitesi, fırın + mikrodalga, buzdolabı yeri, entegre buzdolabı</td></tr>
+    <tr><td>Gardırop</td><td style="text-align:right">24</td><td>1-2-3-4 kapaklı, iç/dış çekmeceli, pantolonluklu, aynalı, köşe, sürgülü 2-3 kapak, yüklük</td></tr>
+    <tr><td>Vestiyer</td><td style="text-align:right">18</td><td>Ayakkabılık, açık askılık, puf oturaklı, 4 kapaklı, gizli askılı, aynalı, klapa ayakkabılık</td></tr>
+    <tr><td>Komidin / şifonyer</td><td style="text-align:right">11</td><td>1-2-3 çekmeceli komidin, 3-4-5-6 çekmeceli şifonyer, makyaj konsolu</td></tr>
+    <tr><td>Banyo · salon · genel</td><td style="text-align:right">17</td><td>Lavabo altı, aynalı üst, TV ünitesi, kitaplık, vitrin, boşluk, dolgu, yan panel</td></tr>
+  </table>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Modül grupları</p>
+  <aside>Toplam 124 modül: mutfak alt 25, üst 18, boy 11, gardırop 24 (yüklükler dahil), vestiyer 18, komidin ve şifonyer 11, banyo 7, salon 8, genel 2. Her grupta ayrıca dolgu paneli ve görünen yan panel modülleri var; boşluk modülleri pencere, kolon, kapı ve cihaz yerleri için kullanılır.</aside>
+</section>
+<section class="slide" id="malzeme-kutuphanesi" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Malzeme ve fiyat kütüphanesi</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">563 kalem malzeme, kodu ve fiyatıyla hazır</h2>
+  <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:16px">
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">34</p><p style="font-size:26px; color:#4A3F36">Gövde plakası</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">11</p><p style="font-size:26px; color:#4A3F36">Arkalık 3-5-8 mm</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">51</p><p style="font-size:26px; color:#4A3F36">Kapak malzemesi</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">18</p><p style="font-size:26px; color:#4A3F36">Cam ve ayna</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">64</p><p style="font-size:26px; color:#4A3F36">Kenar bandı</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">25</p><p style="font-size:26px; color:#4A3F36">Menteşe</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">52</p><p style="font-size:26px; color:#4A3F36">Ray ve çekmece</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">34</p><p style="font-size:26px; color:#4A3F36">Kapak mekanizması</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">52</p><p style="font-size:26px; color:#4A3F36">Kulp</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">26</p><p style="font-size:26px; color:#4A3F36">Ayak ve baza</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">57</p><p style="font-size:26px; color:#4A3F36">Vida, dübel, bağlantı</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">24</p><p style="font-size:26px; color:#4A3F36">Alüminyum profil</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">63</p><p style="font-size:26px; color:#4A3F36">Aksesuar</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">32</p><p style="font-size:26px; color:#4A3F36">Tezgah</p></div>
+    <div style="background:#FFFDF8; border-radius:16px; padding:24px"><p style="font-size:44px; font-weight:800; color:#8E4F22">20</p><p style="font-size:26px; color:#4A3F36">Sarf malzeme</p></div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Malzeme kütüphanesi · Fiyatlar örnektir, kendi fiyatlarınızla güncelleyin</p>
+  <aside>Kütüphanede suntalam ve MDFlam dekorları; 3, 5 ve 8 mm arkalıklar; MDFlam, high gloss, akrilik, membran, balon, lake kapaklar; düz, yarım ve tam deve boynu menteşeler (normal ve frenli, 165 derece, cam kapak menteşesi); teleskopik, gizli ve metal kutu raylar; amortisörlü piston, düşen kapak makası, katlanır ve dikey kalkar mekanizmalar, sürgü rayları; 8-10-12-14-15 cm ayaklar; 3 mm'den 5 mm'ye vidalar, arkalık vidası, zımba teli; Gola profili, cam çerçeve profili; kaşıklık, çöp kovası, karusel, kiler ünitesi, askı borusu; laminat, çimstone, granit tezgahlar var. Fiyatlar KDV hariç, 2026 sonu için tahmini örnek değerlerdir.</aside>
+</section>
+<section class="slide" id="malzeme-secimi" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Malzeme seçimi</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Kapağı değiştir, fiyat anında yeniden hesaplansın</h2>
+  <div style="display:flex; gap:48px">
+    <img src="img/malzemesecim.png" alt="Malzeme seçimi ekranı: kalite paketleri ve malzeme listeleri" style="width:820px; height:586px; object-fit:contain; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px">
+    <div style="flex:1; display:flex; flex-direction:column; gap:20px">
+      <p style="font-size:28px; line-height:1.45; color:#4A3F36"><b>16 seçim:</b> gövde, bant, arkalık, kapak, kapak bandı, çekmece gövdesi ve tabanı, menteşe, ray, kulp, ayak, baza, tezgah, cam, ayna, askı borusu.</p>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <p style="font-size:26px; line-height:1.4; background:#FFFDF8; border-radius:12px; padding:16px 20px"><b>Ekonomik:</b> MDFlam kapak, normal menteşe, teleskopik ray</p>
+        <p style="font-size:26px; line-height:1.4; background:#FFFDF8; border-radius:12px; padding:16px 20px"><b>Standart:</b> membran kapak, frenli menteşe ve ray</p>
+        <p style="font-size:26px; line-height:1.4; background:#FFFDF8; border-radius:12px; padding:16px 20px"><b>Lüks:</b> lake kapak, Blum menteşe, gizli frenli ray</p>
+      </div>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Malzeme seçimi</p>
+  <aside>Kapak seçilince ona uygun bant otomatik gelir. Hazır kapaklar (membran, lake, akrilik) fason kesime girmez; m² üzerinden ayrı sipariş listesine düşer. Ray seçimi tiptir: boy dolap derinliğine göre otomatik seçilir (45 seçilse bile 560 derinlikte 50 cm ray kullanılır). "Bunu varsayılan yap" ile yeni işler bu seçimle başlar.</aside>
+</section>
+<section class="slide" id="fiyat-formulu" data-transition="fade" style="background:#EFE6D8; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Teklif fiyatı nasıl çıkar</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Maliyet + işçilik + kâr + KDV, adım adım</h2>
+  <div style="display:flex; gap:48px">
+    <table style="width:1000px; font-size:28px; color:#2A211B; background:#FFFDF8">
+      <tr><th style="width:62%">Adım (örnek L mutfak, 12 modül)</th><th style="width:38%; text-align:right">Tutar</th></tr>
+      <tr><td>Malzeme: plaka, bant, hırdavat, tezgah</td><td style="text-align:right">39.960 ₺</td></tr>
+      <tr><td>+ Fire / sarf payı %5</td><td style="text-align:right">1.998 ₺</td></tr>
+      <tr><td>+ İşçilik (malzemenin %35'i)</td><td style="text-align:right">14.685 ₺</td></tr>
+      <tr style="background:#F3EADC"><td><b>= Ara toplam (maliyet)</b></td><td style="text-align:right">56.643 ₺</td></tr>
+      <tr><td>+ Kâr %30</td><td style="text-align:right">16.993 ₺</td></tr>
+      <tr style="background:#F3EADC"><td><b>= Net teklif (KDV hariç)</b></td><td style="text-align:right">73.636 ₺</td></tr>
+      <tr><td>+ KDV %20</td><td style="text-align:right">14.727 ₺</td></tr>
+    </table>
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:16px; background:#2A211B; border-radius:20px; padding:40px">
+      <p style="font-size:26px; font-weight:700; color:#E3A46C">Genel toplam</p>
+      <p style="font-family:'Domine', Georgia, serif; font-size:72px; font-weight:700; color:#F7F2EA; line-height:1.1">88.364 ₺</p>
+      <p style="font-size:26px; line-height:1.4; color:#D9CBB9">9,86 metretül; metretül başına net 7.468 ₺</p>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Fiyat hesabı · Örnek fiyat listesiyle hesaplanmıştır</p>
+  <aside>Örnek: 3200 mm ve 2200 mm'lik iki duvardan oluşan L mutfak, 12 modül, MDFlam beyaz kapak, suntalam beyaz gövde, laminat tezgah. İşçilik üç türlü hesaplanabilir: malzemenin yüzdesi, modül başına sabit tutar, metretül başına tutar. Montaj, nakliye ve LED gibi ek kalemler ara toplama eklenir. İskonto kârdan sonra düşülür. Pazarlık sonrası net fiyat elle yazılabilir; KDV ondan hesaplanır. Plakalar tam plaka olarak, vidalar kullanılan adet kadar fiyatlanır.</aside>
+</section>
+<section class="slide" id="maliyet" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Teklif sekmesi</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Maliyeti usta görür, müşteri sadece teklifi</h2>
+  <div style="display:flex; gap:48px">
+    <img src="img/maliyet.png" alt="Teklif sekmesi: maliyet dökümü, fiyat ayarları ve tahsilat" style="width:1060px; height:606px; object-fit:contain; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px">
+    <ul style="flex:1; font-size:28px; line-height:1.45; color:#4A3F36; display:flex; flex-direction:column; gap:14px">
+      <li>Kalem kalem maliyet dökümü</li>
+      <li>Kâr, iskonto, montaj, nakliye</li>
+      <li>Ek kalemler (LED, söküm…)</li>
+      <li>Pazarlık sonrası net fiyat</li>
+      <li>Kâr marjı ve metretül fiyatı</li>
+      <li>Kapora ve ödeme takibi, kalan tutar</li>
+    </ul>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Teklif sekmesi</p>
+  <aside>Sol taraftaki maliyet dökümü yalnızca ekranda görünür, yazdırılan teklif formuna girmez. Fiyat ayarları "varsayılan yap" ile kaydedilince yeni işler aynı kâr ve işçilik oranlarıyla başlar. Tahsilat bölümünde tarih, tutar ve not (kapora, havale, nakit) ile ödemeler girilir.</aside>
+</section>
+<section class="slide" id="teklif-formu" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:row; gap:64px; align-items:center">
+  <div style="flex:1; display:flex; flex-direction:column; gap:28px">
+    <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Müşteriye giden teklif</p>
+    <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Ölçülü çizimli A4 teklif formu</h2>
+    <ul style="font-size:28px; line-height:1.45; color:#4A3F36; display:flex; flex-direction:column; gap:12px">
+      <li>Firma logosu, teklif no, tarih, geçerlilik</li>
+      <li>Her duvarın ölçülü ön görünüş çizimi</li>
+      <li>Gövde, kapak, menteşe, ray, kulp, tezgah</li>
+      <li>Modül listesi ve ölçüleri</li>
+      <li>Toplam, KDV, şartlar, IBAN, imza alanı</li>
+    </ul>
+    <div style="display:flex; gap:16px">
+      <p style="font-size:26px; font-weight:700; background:#2A211B; color:#F7F2EA; padding:12px 24px; border-radius:999px">Yazdır / PDF</p>
+      <p style="font-size:26px; font-weight:700; background:#2F7D4F; color:#F7F2EA; padding:12px 24px; border-radius:999px">WhatsApp ile gönder</p>
+    </div>
+  </div>
+  <img src="img/teklifform.png" alt="Yazdırılabilir teklif formu: müşteri bilgisi ve iki duvarın ölçülü ön görünüş çizimi" style="width:632px; height:792px; object-fit:cover; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px; box-shadow:0 12px 40px rgba(42,33,27,0.18)">
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Teklif formu</p>
+  <aside>Teklif formu uygulama içinde önizlenir; yazdırıldığında yalnızca form çıkar. WhatsApp düğmesi müşterinin kayıtlı telefonuna teklif özetini (iş adı, modül sayısı, kapak ve gövde malzemesi, toplam, geçerlilik tarihi) gönderir. Müşteri onaylayınca "siparişe çevir" ile iş durumu değişir: Taslak, Teklif verildi, Sipariş, Üretimde, Montajda, Teslim edildi.</aside>
+</section>
+<section class="slide" id="malzeme-listesi" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Sipariş sonrası · Malzeme listesi</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Hırdavatçıya tek seferde, eksiksiz liste</h2>
+  <div style="display:flex; gap:48px">
+    <img src="img/liste.png" alt="Malzeme listesi ekranı: plaka ihtiyacı, bant ve hırdavat tabloları" style="width:820px; height:586px; object-fit:contain; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px">
+    <div style="flex:1; display:flex; flex-direction:column; gap:14px">
+      <p style="font-size:28px; line-height:1.4; color:#4A3F36"><b>Plaka:</b> optimizasyonla plaka adedi ve verim yüzdesi</p>
+      <p style="font-size:28px; line-height:1.4; color:#4A3F36"><b>Bant:</b> renk ve kalınlığa göre metre, fire dahil</p>
+      <p style="font-size:28px; line-height:1.4; color:#4A3F36"><b>Hırdavat:</b> gereken ve alınacak miktar; vida paket, ray takım</p>
+      <p style="font-size:28px; line-height:1.4; color:#4A3F36"><b>Hazır kapak ve cam:</b> ölçü ölçü sipariş listesi, m²</p>
+      <p style="font-size:28px; line-height:1.4; color:#4A3F36"><b>Montaj föyü:</b> D1-A3 gibi modül etiketleri</p>
+      <p style="font-size:26px; line-height:1.4; color:#8E4F22; font-weight:700">Excel: satın alma listesi, kapak ve cam siparişi</p>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Malzeme listesi</p>
+  <aside>Otomatik eklenen bağlantı elemanları: gövde birleşiminde her 150 mm'ye bir 4×50 vida, kuşaklarda 4×40, menteşe başına 4 adet 3,5×16, ray başına 12 vida, kulp başına 2 kulp vidası, ayarlı raf başına 4 raf pimi, üst dolaba 2 askı aparatı + dübel + vida, boy dolap ve gardıroba duvar sabitleme L parçası, modül birleştirme vidası, ayak başına 4 vida, baza ve baza klipsi, tezgah uç kapama, süpürgelik ve silikon, tutkal. Vidalar adet olarak sayılır, satın alma listesinde paket (1000'li, 500'lü) olarak çıkar.</aside>
+</section>
+<section class="slide" id="kesim-listesi" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Fason kesim listesi</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Fasoncuya hazır liste: Excel ya da CSV</h2>
+  <img src="img/kesim.png" alt="Kesim listesi: parça no, ad, boy, en, adet, boy ve en bantları, modül etiketleri" style="width:1664px; height:430px; object-fit:cover; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px">
+  <div style="display:flex; gap:24px">
+    <p style="flex:1; font-size:26px; line-height:1.4; color:#4A3F36"><b>Her malzeme ayrı tablo</b> ve Excel'de ayrı sayfa, üstte özet</p>
+    <p style="flex:1; font-size:26px; line-height:1.4; color:#4A3F36"><b>Boy = damar yönü;</b> 4 kenarın bandı ayrı sütunda</p>
+    <p style="flex:1; font-size:26px; line-height:1.4; color:#4A3F36"><b>Aynı ölçüler birleşir,</b> hangi modülden geldiği yazılır</p>
+    <p style="flex:1; font-size:26px; line-height:1.4; color:#4A3F36"><b>CSV noktalı virgüllü,</b> Türkçe Excel'de açılır</p>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Kesim listesi</p>
+  <aside>Sütunlar: No, Parça adı, Modül, Boy, En, Adet, Kalınlık, Damar, Boy bant 1, Boy bant 2, En bant 1, En bant 2, Malzeme kodu, Malzeme, Not. Ölçüler varsayılan olarak bantlı net ölçüdür; fasoncu bant payını makinede düşer. Ayarlardan "bant kalınlığını kesimden düş" açılırsa liste kesim ölçüsüyle verilir. Arkalık kanalı gibi işçilik notları "Not" sütununa yazılır.</aside>
+</section>
+<section class="slide" id="kesim-kurallari" data-transition="fade" style="background:#EFE6D8; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Kesim kuralları · Örnek</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">450 mm tek kapaklı alt dolap nasıl kesilir</h2>
+  <table style="font-size:28px; color:#2A211B; background:#FFFDF8">
+    <tr><th style="width:22%">Parça</th><th style="width:18%; text-align:right">Boy × En</th><th style="width:8%; text-align:right">Adet</th><th style="width:52%">Hesap</th></tr>
+    <tr><td>Alt tabla</td><td style="text-align:right">450 × 560</td><td style="text-align:right">1</td><td>Tam genişlik – yanlar alt tablaya basar</td></tr>
+    <tr><td>Yan dikme</td><td style="text-align:right">702 × 560</td><td style="text-align:right">2</td><td>720 gövde − 18 alt tabla</td></tr>
+    <tr><td>Kuşak</td><td style="text-align:right">414 × 100</td><td style="text-align:right">2</td><td>450 − 2 × 18 yan dikme</td></tr>
+    <tr><td>Arkalık 8 mm</td><td style="text-align:right">709 × 428</td><td style="text-align:right">1</td><td>Kanal payı: 450 − 36 + 2 × 8 − 2 ; 720 − 18 + 8 − 1</td></tr>
+    <tr><td>Ayarlı raf</td><td style="text-align:right">412 × 517</td><td style="text-align:right">1</td><td>414 − 2 ; 560 − 15 − 8 − 20 geri çekme</td></tr>
+    <tr><td>Kapak</td><td style="text-align:right">717 × 447</td><td style="text-align:right">1</td><td>720 − 2 × 1,5 ; 450 − 2 × 1,5 boşluk</td></tr>
+  </table>
+  <p style="font-size:26px; line-height:1.4; color:#4A3F36">Gövde 820 = 720 gövde + 100 ayak · derinlik 560 · gövde 18 mm · kanal arkadan 15 mm, 8 mm derin · 2 frenli menteşe, 4 ayak</p>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Kesim kuralları</p>
+  <aside>Bu değerler uygulamanın otomatik testlerinde de doğrulanır. Gövde birleşimi ayarlardan değiştirilebilir: yanlar alt tablaya basar ve üst tabla yanlara biner (varsayılan), yanlar alta basar ve üst tabla arada, ya da yanlar tam boy ve alt ile üst tabla arada. Çakma arkalık seçilirse gövde parçalarının derinliği arkalık kalınlığı kadar azalır ve arkalık dış ölçüden 2 mm küçük kesilir. Evye dolabında arkalık yoktur, arkada dik kuşaklar kullanılır.</aside>
+</section>
+<section class="slide" id="kapak-cekmece" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Kapak, çekmece, raf kuralları</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Payların hepsi düşülür, hepsi ayarlanabilir</h2>
+  <table style="font-size:27px; color:#2A211B; background:#FFFDF8">
+    <tr><th style="width:26%">Konu</th><th style="width:74%">Kural (varsayılan)</th></tr>
+    <tr><td>Kapak boşluğu</td><td>Dış kenarda 1,5 mm, iki kapak arasında 3 mm; ara dikmede kapak dikme ortasına gelir</td></tr>
+    <tr><td>Kapak sayısı</td><td>Genişlik 600 mm'yi geçerse otomatik 2 kapak</td></tr>
+    <tr><td>Menteşe adedi</td><td>Kapak boyu ≤900: 2 · ≤1400: 3 · ≤1900: 4 · ≤2300: 5 · üstü: 6</td></tr>
+    <tr><td>Ray boyu</td><td>İç derinlik − 20 mm'ye sığan en uzun standart ray (25–55 cm)</td></tr>
+    <tr><td>Çekmece kutusu</td><td>Teleskopik: iç genişlik − 26 · gizli ray: − 10 · metal kutu: taban − 75, arka − 87</td></tr>
+    <tr><td>Kutu yüksekliği</td><td>Cephe yüksekliği − 50 mm; taban alttan çakma ya da kanallı</td></tr>
+    <tr><td>Ayarlı raf</td><td>İç genişlik − 2, iç derinlik − 20, raf başına 4 pim</td></tr>
+    <tr><td>Kenar bandı</td><td>Gövde 0,4 mm ön kenar · kapak 1 mm dört kenar · her kenara +50 mm fire</td></tr>
+  </table>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Kapak ve çekmece kuralları</p>
+  <aside>Kapak mekanizmalarına göre donanım da değişir: kalkar kapakta 2 menteşe + çift amortisörlü piston, düşen kapakta 2 menteşe + çift makas, katlanır kapakta iki parça kapak ve katlanır mekanizma, dikey kalkarda mekanizma takımı, cam kapakta alüminyum çerçeve profili + cam + cam kapak menteşesi, aynalı kapakta taşıyıcı kapak + ayna + ayna yapıştırıcısı. Sürgülü gardıropta kapaklar 40 mm bindirmeli, ray payı 55 mm'dir.</aside>
+</section>
+<section class="slide" id="usta-kontrolleri" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Usta gözüyle kontroller</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Uygulama hatayı kesimden önce söyler</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px">
+    <div style="display:flex; flex-direction:column; gap:10px; background:#FFFDF8; border-left:8px solid #C8813F; border-radius:16px; padding:32px">
+      <h3 style="font-size:34px; font-weight:800">Devirme payı</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">Boy dolabın köşegeni tavandan büyükse dolap yerinde dikilemez. Uygulama uyarır ve en fazla kaç mm yapılabileceğini söyler.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; background:#FFFDF8; border-left:8px solid #C8813F; border-radius:16px; padding:32px">
+      <h3 style="font-size:34px; font-weight:800">Raf sehimi</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">900 mm'yi geçen raf açıklığında ara dikme ya da 25 mm raf önerilir.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; background:#FFFDF8; border-left:8px solid #C8813F; border-radius:16px; padding:32px">
+      <h3 style="font-size:34px; font-weight:800">İç çekmece takozu</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">Kapak arkasındaki çekmece menteşeye çarpmasın diye iki yana 22 mm takoz eklenir.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; background:#FFFDF8; border-left:8px solid #C8813F; border-radius:16px; padding:32px">
+      <h3 style="font-size:34px; font-weight:800">Kör köşe payı</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">L köşede diğer duvarın dolabı + kapak + kulp payı: altta 650, üstte 370 mm kör kısım bırakılır.</p>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Kontroller</p>
+  <aside>Diğer uyarılar: duvarda boşluk kaldı ya da modüller duvarı aştı (kaç mm olduğu yazılır), modül tavana sığmıyor, kapak genişliği sarkma sınırını aştı, modül önerilen ölçü aralığının dışında, köşe modül kapağı 250 mm'nin altına düştü, parça plakaya sığmıyor (ek parçalı yapılmalı), kütüphanede bulunamayan malzeme seçilmiş.</aside>
+</section>
+<section class="slide" id="plaka-optimizasyonu" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Plaka optimizasyonu</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Kaç plaka alınacağı, parça parça yerleşimle hesaplanır</h2>
+  <img src="img/plakalar.png" alt="Plaka yerleşim çizimleri: parça numaralarıyla üç plaka ve doluluk oranları" style="width:1664px; height:286px; object-fit:contain; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px">
+  <div style="display:flex; gap:24px">
+    <div style="flex:1; background:#EFE6D8; border-radius:16px; padding:28px"><p style="font-size:44px; font-weight:800; color:#8E4F22">4 mm</p><p style="font-size:26px; color:#4A3F36">testere payı</p></div>
+    <div style="flex:1; background:#EFE6D8; border-radius:16px; padding:28px"><p style="font-size:44px; font-weight:800; color:#8E4F22">10 mm</p><p style="font-size:26px; color:#4A3F36">her kenardan tıraş</p></div>
+    <div style="flex:1; background:#EFE6D8; border-radius:16px; padding:28px"><p style="font-size:44px; font-weight:800; color:#8E4F22">Damar</p><p style="font-size:26px; color:#4A3F36">ahşap desende parça döndürülmez</p></div>
+    <div style="flex:1; background:#EFE6D8; border-radius:16px; padding:28px"><p style="font-size:44px; font-weight:800; color:#8E4F22">Verim %</p><p style="font-size:26px; color:#4A3F36">her plaka ve malzeme için</p></div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Plaka optimizasyonu</p>
+  <aside>Yerleşim MaxRects yöntemiyle yapılır: büyük parçalar önce yerleştirilir, her parça en az boşluk bırakan yere konur. Çizimdeki numaralar kesim listesindeki parça numaralarıdır. Plaka ölçüleri malzemeden gelir: suntalam 3660 × 1830, MDFlam 2800 × 2100 gibi. Fiyatlandırmada alınan tam plaka sayısı kullanılır. Testere payı ve kenar tıraşı ayarlardan değiştirilebilir.</aside>
+</section>
+<section class="slide" id="ayarlar" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:row; gap:64px; align-items:center">
+  <div style="flex:1; display:flex; flex-direction:column; gap:28px">
+    <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Ayarlar ve kütüphane yönetimi</p>
+    <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Atölyenin kendi kuralları, kendi fiyatları</h2>
+    <ul style="font-size:28px; line-height:1.45; color:#4A3F36; display:flex; flex-direction:column; gap:12px">
+      <li><b>Firma:</b> logo, adres, IBAN, teklif şartları, geçerlilik süresi</li>
+      <li><b>Üretim:</b> gövde birleşimi, arkalık, boşluklar, ray payları, ayak yüksekliği</li>
+      <li><b>Fiyat:</b> tabloda tek tek, toplu % zam ya da Excel'den yükleme</li>
+      <li><b>Yedek:</b> tek dosyada bütün işler, müşteriler, fiyatlar</li>
+    </ul>
+  </div>
+  <img src="img/ayarlar.png" alt="Ayarlar ekranı: firma bilgileri ve üretim kuralları" style="width:694px; height:792px; object-fit:cover; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px">
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Ayarlar</p>
+  <aside>Fiyat güncelleme yöntemi: Malzemeler ekranında "Excel'e aktar" ile tüm liste indirilir, fiyat sütunu güncellenir, "Excel/CSV'den yükle" ile geri alınır; eşleşme kod ya da id ile yapılır. Toplu zam grup bazında (örneğin sadece menteşeler %8) ya da bütün kütüphaneye uygulanabilir. Otomatik hesapta kullanılan bağlantı elemanları silinemez, yalnızca fiyatları değişir. Yeni malzeme eklenebilir, kullanılmayan malzeme pasife alınabilir.</aside>
+</section>
+<section class="slide" id="ozet" data-transition="fade" style="background:#8E4F22; color:#F7F2EA; font-family:'Nunito Sans', Arial, sans-serif; padding:128px; display:flex; flex-direction:column; justify-content:center; gap:48px">
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:120px; font-weight:700; line-height:1.1; color:#FBF3E8">Ölç. Teklif ver. Kes.</h2>
+  <p style="font-size:44px; line-height:1.35; color:#F3DDC6; width:1400px">Müşterinin yanında fiyat, atölyede hatasız kesim listesi, hırdavatçıda eksiksiz malzeme.</p>
+  <aside>Özet: uygulamanın vaadi bu üç fiildir. Ölçü müşteride alınır, teklif aynı anda verilir, sipariş onaylanınca kesim ve malzeme listesi hazırdır.</aside>
+</section>
+<section class="slide" id="baslangic" data-transition="fade" style="background:#EFE6D8; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Başlarken</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">İlk teklife kadar beş adım</h2>
+  <div style="display:flex; flex-direction:column; gap:14px">
+    <div style="display:flex; gap:24px; align-items:center; background:#FFFDF8; border-radius:16px; padding:22px 32px"><p style="font-size:44px; font-weight:800; color:#8E4F22; width:60px">1</p><p style="font-size:28px; line-height:1.4; color:#2A211B">GitHub'da <b>Settings → Pages → Source: GitHub Actions</b> seçilir; uygulama yayına çıkar.</p></div>
+    <div style="display:flex; gap:24px; align-items:center; background:#FFFDF8; border-radius:16px; padding:22px 32px"><p style="font-size:44px; font-weight:800; color:#8E4F22; width:60px">2</p><p style="font-size:28px; line-height:1.4; color:#2A211B">Adres açılır: <b>emrullahkara.github.io/DC-Mobilya-uretim</b></p></div>
+    <div style="display:flex; gap:24px; align-items:center; background:#FFFDF8; border-radius:16px; padding:22px 32px"><p style="font-size:44px; font-weight:800; color:#8E4F22; width:60px">3</p><p style="font-size:28px; line-height:1.4; color:#2A211B">Telefonda <b>"Uygulamayı yükle"</b> ya da iPhone'da <b>"Ana Ekrana Ekle"</b></p></div>
+    <div style="display:flex; gap:24px; align-items:center; background:#FFFDF8; border-radius:16px; padding:22px 32px"><p style="font-size:44px; font-weight:800; color:#8E4F22; width:60px">4</p><p style="font-size:28px; line-height:1.4; color:#2A211B">Ayarlar'da firma bilgisi ve logo; Malzemeler'de <b>kendi alış fiyatlarınız</b></p></div>
+    <div style="display:flex; gap:24px; align-items:center; background:#FFFDF8; border-radius:16px; padding:22px 32px"><p style="font-size:44px; font-weight:800; color:#8E4F22; width:60px">5</p><p style="font-size:28px; line-height:1.4; color:#2A211B">Panel'den <b>"Mutfak Dolabı"</b>: ilk teklif birkaç dakikada hazır</p></div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Başlarken</p>
+  <aside>Birinci adım bir kez yapılır; sonrasında main dalına yapılan her güncelleme otomatik yayınlanır. Ayar seçildikten sonra ilk yayın için GitHub'da Actions sekmesinden "Test ve Yayınla" işi bir kez çalıştırılmalıdır. Fiyatlar örnek olduğu için ilk gerçek tekliften önce mutlaka güncellenmelidir. Kullanım kılavuzu ve bütün hesap kuralları depodaki KITAP.md dosyasındadır.</aside>
+</section>
+<section class="slide" id="yol-haritasi" data-transition="fade" style="background:#F7F2EA; color:#2A211B; font-family:'Nunito Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <p style="font-size:26px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#8E4F22">Sonraki adımlar · Öneri</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:64px; font-weight:700; line-height:1.12">Uygulamayı büyütecek dört geliştirme</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px">
+    <div style="display:flex; flex-direction:column; gap:10px; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px; padding:32px">
+      <h3 style="font-size:34px; font-weight:800">Resimden desenli 3D</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">Dekor fotoğrafı yüklenir; ceviz, meşe, mermer desenleri 3D'de gerçek görünür.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px; padding:32px">
+      <h3 style="font-size:34px; font-weight:800">Ortak veri</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">Birden fazla usta aynı işleri ve fiyat listesini anlık görür (sunucu gerekir).</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px; padding:32px">
+      <h3 style="font-size:34px; font-weight:800">Makine formatları</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">OptiCut, CutRite ve CNC programlarına doğrudan aktarım, etiket çıktısı.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; background:#FFFDF8; border:1px solid #E0D5C5; border-radius:16px; padding:32px">
+      <h3 style="font-size:34px; font-weight:800">Saha fotoğrafı</h3>
+      <p style="font-size:26px; line-height:1.4; color:#4A3F36">Ölçü sırasında duvar, tesisat ve priz fotoğrafları işe eklenir.</p>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; width:1664px; font-size:24px; color:#7B6A5C">DC Mobilya Üretim · Yol haritası</p>
+  <aside>Bunlar henüz uygulamada olmayan, önerilen geliştirmelerdir. Resimden desenli 3D ve saha fotoğrafı internetsiz çalışma yapısıyla uyumludur. Ortak veri ise bir sunucu ve barındırma maliyeti gerektirir; şu an cihazlar arası aktarım yedek dosyasıyla yapılır.</aside>
+</section>
+<section class="slide" id="kapanis" data-transition="fade" style="background:#2A211B; color:#F7F2EA; font-family:'Nunito Sans', Arial, sans-serif; padding:128px; display:flex; flex-direction:column; justify-content:center; gap:40px">
+  <div style="position:absolute; left:0; top:0; width:24px; height:1080px; background:#C8813F"></div>
+  <p style="font-size:28px; font-weight:800; letter-spacing:4px; text-transform:uppercase; color:#E3A46C">DC Mobilya Üretim</p>
+  <h2 style="font-family:'Domine', Georgia, serif; font-size:96px; font-weight:700; line-height:1.1; color:#F7F2EA">Teşekkürler</h2>
+  <div style="display:flex; gap:64px">
+    <div style="display:flex; flex-direction:column; gap:8px"><p style="font-size:26px; color:#E3A46C; font-weight:700">Uygulama</p><p style="font-size:32px; color:#D9CBB9">emrullahkara.github.io/DC-Mobilya-uretim</p></div>
+    <div style="display:flex; flex-direction:column; gap:8px"><p style="font-size:26px; color:#E3A46C; font-weight:700">Kılavuz</p><p style="font-size:32px; color:#D9CBB9">KITAP.md · GitHub deposu</p></div>
+  </div>
+  <aside>Kapanış. Sorular için: uygulamanın kullanım kılavuzu, hesap kuralları tablosu ve geliştirme günlüğü depodaki KITAP.md dosyasındadır.</aside>
+</section>
+</div>
+<div id="not"></div>
+<div id="bar"><button id="geri">◀</button><span id="no"></span><button id="ileri">▶</button><button id="notb">Notlar (N)</button><button id="tam">Tam ekran (F)</button></div>
+<script>
+  const s = [...document.querySelectorAll('.slide')];
+  const sahne = document.getElementById('sahne');
+  const not = document.getElementById('not');
+  let i = Math.max(0, Math.min(s.length - 1, (parseInt(location.hash.slice(1)) || 1) - 1));
+  let notAcik = false;
+  function goster() {
+    s.forEach((x, k) => x.classList.toggle('on', k === i));
+    document.getElementById('no').textContent = (i + 1) + ' / ' + s.length;
+    const a = s[i].querySelector('aside');
+    not.textContent = a ? a.textContent.trim() : '';
+    not.style.display = notAcik && a ? 'block' : 'none';
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+  function olcek() {
+    const k = Math.min(innerWidth / 1920, innerHeight / 1080);
+    sahne.style.transform = 'scale(' + k + ') translate(-50%, -50%)';
+  }
+  const git = (d) => { i = Math.max(0, Math.min(s.length - 1, i + d)); goster(); };
+  addEventListener('resize', olcek);
+  addEventListener('keydown', (e) => {
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) git(1);
+    else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) git(-1);
+    else if (e.key === 'Home') { i = 0; goster(); }
+    else if (e.key === 'End') { i = s.length - 1; goster(); }
+    else if (e.key === 'n' || e.key === 'N') { notAcik = !notAcik; goster(); }
+    else if (e.key === 'f' || e.key === 'F') tamEkran();
+  });
+  let x0 = null;
+  addEventListener('touchstart', (e) => (x0 = e.touches[0].clientX), { passive: true });
+  addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) git(dx < 0 ? 1 : -1); x0 = null; });
+  sahne.addEventListener('click', (e) => git(e.clientX > innerWidth / 3 ? 1 : -1));
+  function tamEkran() { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+  document.getElementById('geri').onclick = () => git(-1);
+  document.getElementById('ileri').onclick = () => git(1);
+  document.getElementById('notb').onclick = () => { notAcik = !notAcik; goster(); };
+  document.getElementById('tam').onclick = tamEkran;
+  olcek(); goster();
+</script>
+</body>
+</html>
