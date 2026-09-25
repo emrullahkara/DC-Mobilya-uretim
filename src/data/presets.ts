@@ -2,7 +2,7 @@
 import { gardiropBol } from '../engine/layout';
 import type { PlacedModule, Wall } from '../engine/types';
 import { TEMPLATE_MAP } from './templates';
-import { uid } from '../store';
+import { uid } from '../uid';
 
 const m = (tid: string, w?: number, h?: number, d?: number): PlacedModule => {
   const t = TEMPLATE_MAP.get(tid)!;

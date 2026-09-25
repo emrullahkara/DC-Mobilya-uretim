@@ -8,10 +8,14 @@ import { MATERIALS } from './data/materials';
 import { VARSAYILAN_AYARLAR } from './data/defaults';
 import type { Customer, Material, PlacedModule, Project, Settings, Wall } from './engine/types';
 
-export const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
-export const bugun = () => new Date().toISOString().slice(0, 10);
+import { bugun, uid } from './uid';
+export { bugun, uid };
 
-const idbStorage: StateStorage = {
+// indexedDB olmayan ortamlarda (testler, eski tarayıcılar) sessizce bellek içinde çalışır
+const idbVar = typeof indexedDB !== 'undefined';
+const idbStorage: StateStorage = !idbVar
+  ? { getItem: () => null, setItem: () => {}, removeItem: () => {} }
+  : {
   getItem: async (name) => (await get(name)) ?? null,
   setItem: async (name, value) => {
     await set(name, value);
