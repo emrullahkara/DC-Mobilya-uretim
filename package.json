@@ -1,0 +1,39 @@
+{
+  "name": "dc-mobilya-uretim",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "DC Mobilya Üretim – ustalar için ölçüden teklife, kesim listesine mobilya üretim uygulaması",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.8.1",
+    "idb-keyval": "^6.3.0",
+    "react": "~19.3.0",
+    "react-dom": "~19.3.0",
+    "read-excel-file": "^9.3.10",
+    "three": "^0.186.1",
+    "write-excel-file": "^4.1.1",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1",
+    "vite-plugin-pwa": "^1.3.0",
+    "vitest": "^5.0.2"
+  }
+}
