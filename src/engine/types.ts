@@ -189,8 +189,11 @@ export interface ModuleTemplate {
   columns: Column[];
   /** Özel yapı üreticisi (köşe dolap, sürgülü gardırop vb.) */
   ozel?: 'kose' | 'surgulu' | 'dolgu' | 'yanPanel' | 'bosluk' | 'cihazKapak';
-  /** Köşe dolaplarda kapak genişliği */
-  koseKapakGen?: number;
+  /**
+   * Köşe (kör köşe) dolaplarda kör kısmın genişliği: diğer duvardaki dolabın derinliği +
+   * kapak + kulp payı. Kapak genişliği = modül genişliği − kör pay.
+   */
+  koseKorPay?: number;
   /** Kütüphanede arama için etiketler */
   etiket?: string[];
   /**

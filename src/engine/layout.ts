@@ -24,6 +24,9 @@ export interface WallFit {
   /** Alt sıra toplam modül uzunluğu */
   altUzunluk: number;
   ustUzunluk: number;
+  /** Duvarda kalan boşluk (+) veya taşma (−) */
+  altFark: number;
+  ustFark: number;
 }
 
 export interface FitItem {
@@ -145,6 +148,7 @@ export function fitWall(wall: Wall, tpls: Map<string, ModuleTemplate>, ustDolapA
   const maxAltH = Math.max(0, ...alt.filter((p) => !p.tpl.kategori.startsWith('mutfak') && p.tpl.ozel !== 'bosluk').map((p) => p.pm.h));
   const ust: Placement[] = [];
   let ustUzunluk = 0;
+  let ustFark = 0;
   segler.forEach((mods, si) => {
     const [a, b] = segSinir[si] ?? [ustBas, ustSon];
     if (!mods.length) return;
@@ -156,6 +160,7 @@ export function fitWall(wall: Wall, tpls: Map<string, ModuleTemplate>, ustDolapA
       b - a,
     );
     farkUyari(uyarilar, segler.length > 1 ? `Üst sıra ${si + 1}. bölüm` : 'Üst sıra', fit.fark);
+    ustFark += fit.fark;
     let ux = a;
     mods.forEach((m, i) => {
       const tpl = tpls.get(m.templateId)!;
@@ -171,8 +176,12 @@ export function fitWall(wall: Wall, tpls: Map<string, ModuleTemplate>, ustDolapA
     if (p.tpl.ozel === 'bosluk') continue;
     if (p.y + p.pm.h > wall.yukseklik)
       uyarilar.push(`${p.tpl.ad}: üst kotu ${p.y + p.pm.h} mm, tavan yüksekliği ${wall.yukseklik} mm – modül tavana sığmıyor.`);
+    else if (p.pm.h > 1600 && p.y === 0 && Math.hypot(p.pm.h, p.pm.d) > wall.yukseklik - 5)
+      uyarilar.push(
+        `${p.tpl.ad}: köşegen ${Math.round(Math.hypot(p.pm.h, p.pm.d))} mm – tavan ${wall.yukseklik} mm, dolap yerinde dikilemez (devirme payı). Yüksekliği en fazla ${Math.floor(Math.sqrt(wall.yukseklik ** 2 - p.pm.d ** 2) - 10)} mm yapın veya yerinde kurun.`,
+      );
   }
-  return { alt, ust, uyarilar, altUzunluk, ustUzunluk };
+  return { alt, ust, uyarilar, altUzunluk, ustUzunluk, altFark: altMods.length ? altFit.fark : altAlan, ustFark };
 }
 
 function farkUyari(u: string[], ad: string, fark: number) {

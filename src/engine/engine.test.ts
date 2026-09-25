@@ -214,3 +214,19 @@ describe('proje hesabı', () => {
     expect(toplamW).toBe(3200);
   });
 });
+
+describe('hazır dizilimler', () => {
+  it('mutfak önerisi farklı duvar ölçülerinde boşluk/taşma bırakmaz', async () => {
+    const { mutfakOner, gardiropOner } = await import('../data/presets');
+    for (const L of [1200, 1800, 2400, 2600, 3000, 3200, 3600, 4200, 5000]) {
+      const o = mutfakOner(L);
+      const fit = fitWall({ id: 'w', ad: 'D', uzunluk: L, yukseklik: 2600, ...o }, TEMPLATE_MAP, 1460);
+      expect(fit.uyarilar, `L=${L}`).toEqual([]);
+    }
+    for (const [L, k] of [[1800, 4], [2600, 6], [3100, 7]] as const) {
+      const o = gardiropOner(L, 2600, k, 'ikili', false);
+      const fit = fitWall({ id: 'w', ad: 'D', uzunluk: L, yukseklik: 2600, ...o }, TEMPLATE_MAP, 1460);
+      expect(fit.uyarilar, `gardırop L=${L}`).toEqual([]);
+    }
+  });
+});

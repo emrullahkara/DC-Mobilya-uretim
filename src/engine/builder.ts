@@ -929,16 +929,19 @@ function buildSurguluKapaklar(k: Kurucu, tpl: ModuleTemplate, W: number, y0: num
 
 function buildKoseKapak(k: Kurucu, tpl: ModuleTemplate, pm: PlacedModule, W: number, y0: number, Hb: number, D: number) {
   const kenar = k.u.kapakKenarBosluk;
-  const kapakW = Math.min(tpl.koseKapakGen ?? 450, W - 100);
+  const ara = k.u.kapakAraBosluk;
+  const korPay = tpl.koseKorPay ?? 650;
+  // yon = kapağın bulunduğu taraf; kör kısım köşede (diğer tarafta) kalır
   const yon = pm.yon ?? 'sag';
+  const kapakW = W - korPay - kenar - ara / 2;
+  if (kapakW < 250) k.uyarilar.push(`Köşe modülü kapağı ${Math.round(kapakW)} mm kaldı – modül genişliğini artırın (kör pay ${korPay} mm).`);
   const kh = Hb - 2 * kenar;
   const tk = k.th('kapak');
   const kx = yon === 'sag' ? W - kenar - kapakW : kenar;
   tekKapak(k, 'normal', kx, y0 + kenar, kapakW, kh, D, yon === 'sol', false);
-  // Kör kısım: gövde malzemesinden kör panel (komşu modül kapatır)
-  const korW = W - kapakW - 2 * kenar - k.u.kapakAraBosluk;
-  const korX = yon === 'sag' ? kenar : kenar + kapakW + k.u.kapakAraBosluk;
+  // Kör kısım: kapak malzemesinden kör panel (komşu duvardaki modülün arkasında kalır)
+  const korW = korPay - ara / 2 - kenar;
+  const korX = yon === 'sag' ? kenar : W - kenar - korW;
   k.add('Köşe kör paneli', 'kapak', 'kapak', kh, korW, { x: korX, y: y0 + kenar, z: D, w: korW, h: kh, d: tk }, kapakKenar(k), { not: 'Köşede komşu modülün arkasında kalır' });
   k.donanim(HW.vidaMentese, 6);
-  k.uyarilar.push('Köşe modülü: komşu modül için en az 50 mm köşe dolgusu (kulp payı) bırakın.');
 }

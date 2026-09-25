@@ -199,7 +199,7 @@ export function hesapla(p: Project, settings: Settings, malzemeler: Material[], 
   });
 
   // --- Parçaları topla
-  type Toplu = KesimSatiri & { key: string; modSet: Set<string>; adSet: Set<string> };
+  type Toplu = KesimSatiri & { key: string; modSet: Set<string>; adSet: Set<string>; notSet: Set<string> };
   const topluMap = new Map<string, Toplu>();
   const bantKal = (id?: string) => (id ? mat(id)?.bantKalinlik ?? 0 : 0);
   for (const y of yerlesimler) {
@@ -214,6 +214,7 @@ export function hesapla(p: Project, settings: Settings, malzemeler: Material[], 
         t.adet += part.adet;
         t.modSet.add(y.etiket);
         t.adSet.add(part.ad);
+        if (part.not) t.notSet.add(part.not);
       } else {
         topluMap.set(key, {
           key,
@@ -232,14 +233,15 @@ export function hesapla(p: Project, settings: Settings, malzemeler: Material[], 
           not: part.not,
           modSet: new Set([y.etiket]),
           adSet: new Set([part.ad]),
+          notSet: new Set(part.not ? [part.not] : []),
         });
       }
     }
   }
   const satirlar: KesimSatiri[] = [...topluMap.values()].map((t) => {
-    const { key: _k, modSet, adSet, ...rest } = t;
+    const { key: _k, modSet, adSet, notSet, ...rest } = t;
     void _k;
-    return { ...rest, ad: [...adSet].join(' / '), moduller: [...modSet].join(', ') };
+    return { ...rest, ad: [...adSet].join(' / '), moduller: [...modSet].join(', '), not: [...notSet].join('; ') || undefined };
   });
 
   // --- Malzemeye göre ayır
@@ -258,7 +260,8 @@ export function hesapla(p: Project, settings: Settings, malzemeler: Material[], 
   // Sıralı numaralandırma: plaka malzemeleri – büyükten küçüğe
   let no = 1;
   const plakalar: PlakaOzet[] = [];
-  for (const [mid, rows] of plakaGrup) {
+  const plakaSirali = [...plakaGrup.entries()].sort((a, b) => grupSira(mat(a[0])!) - grupSira(mat(b[0])!));
+  for (const [mid, rows] of plakaSirali) {
     const m = mat(mid)!;
     rows.sort((a, b) => b.boy - a.boy || b.en - a.en);
     for (const r of rows) r.no = no++;
@@ -272,7 +275,6 @@ export function hesapla(p: Project, settings: Settings, malzemeler: Material[], 
     const adet = n.sheets.length + n.sigmayan.length;
     plakalar.push({ malzeme: m, satirlar: rows, nest: n, plakaSayisi: adet, parcaAlan: alan, tutar: para(adet * m.fiyat) });
   }
-  plakalar.sort((a, b) => grupSira(a.malzeme) - grupSira(b.malzeme));
 
   const siparis = (g: Map<string, KesimSatiri[]>): SiparisSatiri[] =>
     [...g.entries()].map(([mid, rows]) => {
