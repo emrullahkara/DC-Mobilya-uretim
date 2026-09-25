@@ -16,6 +16,12 @@ Usta, müşterinin yanında telefondan, tabletten ya da bilgisayardan duvar öl�
 
 İnternet olmadan çalışır; veriler cihazda saklanır.
 
+## Tanıtım sunumu
+
+27 sayfalık tanıtım sunumu `public/sunum/` klasöründedir. Uygulama yayına çıktığında `https://emrullahkara.github.io/DC-Mobilya-uretim/sunum/` adresinden açılır; yerelde `npm run dev` ile `http://localhost:5173/sunum/` adresindedir.
+- Ok tuşları, boşluk, tıklama ya da parmakla kaydırma ile sayfa değişir; **N** konuşmacı notlarını, **F** tam ekranı açar.
+- Tarayıcıdan **Yazdır → PDF olarak kaydet** ile her sayfa bir slayt olacak şekilde PDF alınır.
+
 ## 2. Kurulum ve çalıştırma
 
 ```bash
@@ -187,3 +193,7 @@ src/ui/       common.tsx · FrontSvg.tsx (2D ön görünüş)
 - Metal kutu çekmece sistemlerinin (Tandembox, Alfa) taban ve arka ölçüleri genel formülle hesaplanır; markanın kataloğuyla kontrol edin.
 - Veriler cihazdadır; birden fazla usta aynı verileri ancak yedek dosyasıyla paylaşabilir (anlık ortak veritabanı yoktur).
 - Ustanın “kork” ve “alüminyum kurt” ifadeleri kulp çeşitleri ve alüminyum profil kulplar olarak yorumlandı. Farklı bir ürün kastedildiyse Malzemeler ekranından eklenebilir.
+
+### Adım 7 – Tanıtım sunumu
+- 27 sayfalık tanıtım sunumu hazırlandı (giriş, tasarım, teklif, üretim, kapanış bölümleri; gerçek ekran görüntüleri ve konuşmacı notları).
+- Depoya `public/sunum/index.html` olarak kaydedildi: tek dosya, internetsiz açılan görüntüleyici, PDF çıktısı. Sunum uygulamanın çevrimdışı önbelleğine alınmaz.
